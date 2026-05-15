@@ -1,8 +1,8 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "release_date": "2025-01-15",
-  "download_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/V1.0.3/ClickByChris_Setup_Tool_V1_0_3.zip",
-  "release_notes_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/V1.0.3",
+  "download_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/V1.0.4/ClickByChris_Setup_Tool_V1_0_4.zip",
+  "release_notes_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/V1.0.4",
   "installer_url": "https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/install.ps1",
   "min_windows_build": 19041,
   "mandatory": false,
@@ -14,4 +14,3 @@
     "Compatibilité Windows 10/11 renforcée"
   ]
 }
- 
