@@ -1,7 +1,7 @@
 @echo off
 setlocal
 set "SCRIPT_DIR=%~dp0"
-set "SCRIPT_PATH=%SCRIPT_DIR%ClickByChris_Setup_Tool_V1_0_3_REPORTS_PLUS_FIXED.ps1"
+set "SCRIPT_PATH=%SCRIPT_DIR%ClickByChris_Setup_Tool_V1_0_4.ps1"
 
 if not exist "%SCRIPT_PATH%" (
     echo Script introuvable :
