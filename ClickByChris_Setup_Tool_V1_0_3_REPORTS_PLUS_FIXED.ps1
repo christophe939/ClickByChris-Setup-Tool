@@ -19,11 +19,70 @@ $Script:VersionManifestUrl = "https://raw.githubusercontent.com/christophe939/Cl
 
 function Test-ClickByChrisUpdate {
     try {
-        $manifest = Invoke-RestMethod -Uri $Script:VersionManifestUrl -UseBasicParsing -TimeoutSec 5
-        $latest = ($manifest.version -replace '^[Vv]', '').Trim()
+        $manifest = Invoke-RestMethod -Uri $Script:VersionManifestUrl -UseBasicParsing -TimeoutSec 8
+
+        $latest  = ($manifest.version -replace '^[Vv]', '').Trim()
         $current = $Script:CurrentVersion.Trim()
 
-        if ([string]::IsNullOrWhiteSpace($latest)) { return }
+        if ([string]::IsNullOrWhiteSpace($latest)) {
+            Write-Host "version.json vide ou invalide. Lancement normal..." -ForegroundColor Yellow
+            return
+        }
+
+        if ([version]$latest -gt [version]$current) {
+
+            $zipUrl  = $manifest.download_url
+            $TempZip = "$env:TEMP\ClickByChris_Update.zip"
+            $TempDir = "$env:TEMP\ClickByChris_Update"
+
+            Write-Host ""
+            Write-Host "=========================================" -ForegroundColor Cyan
+            Write-Host "  Mise a jour disponible : V$latest"      -ForegroundColor Yellow
+            Write-Host "  Version actuelle        : V$current"    -ForegroundColor White
+            Write-Host "=========================================" -ForegroundColor Cyan
+            Write-Host ""
+            Write-Host "[1/3] Telechargement de la mise a jour..." -ForegroundColor White
+
+            Invoke-WebRequest -Uri $zipUrl -OutFile $TempZip -UseBasicParsing
+
+            Write-Host "[2/3] Extraction des fichiers..." -ForegroundColor White
+
+            if (Test-Path $TempDir) { Remove-Item $TempDir -Recurse -Force }
+            New-Item -ItemType Directory -Path $TempDir -Force | Out-Null
+            Expand-Archive -Path $TempZip -DestinationPath $TempDir -Force
+
+            Write-Host "[3/3] Lancement de la nouvelle version..." -ForegroundColor White
+
+            $Launcher = Get-ChildItem -Path $TempDir -Recurse -Filter "*.cmd" | Select-Object -First 1
+
+            if ($Launcher) {
+                [System.Windows.Forms.MessageBox]::Show(
+                    "La version V$latest a ete installee automatiquement.`r`n`r`nL'outil va redemarrer maintenant avec la derniere version.`r`n`r`nCliquez sur OK pour continuer.",
+                    "ClickByChris Setup Tool - Mise a jour automatique",
+                    [System.Windows.Forms.MessageBoxButtons]::OK,
+                    [System.Windows.Forms.MessageBoxIcon]::Information
+                ) | Out-Null
+
+                Start-Process $Launcher.FullName
+                exit
+            }
+            else {
+                Write-Host "Launcher introuvable apres mise a jour. Lancement normal..." -ForegroundColor Red
+            }
+
+        }
+        else {
+            Write-Host "Deja a jour : V$current" -ForegroundColor Green
+        }
+
+    }
+    catch {
+        Write-Host "Verification mise a jour impossible. Lancement normal..." -ForegroundColor Yellow
+    }
+}
+
+Add-Type -AssemblyName System.Windows.Forms
+Test-ClickByChrisUpdate
 
         if ([version]$latest -gt [version]$current) {
             $msg = "Une nouvelle version est disponible !`r`n`r`n" +
