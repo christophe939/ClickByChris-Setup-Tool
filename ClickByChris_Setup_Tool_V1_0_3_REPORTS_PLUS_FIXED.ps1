@@ -11,6 +11,45 @@ Add-Type -AssemblyName PresentationCore
 
 $ProgressPreference = 'SilentlyContinue'
 
+# =========================================================
+# AUTO-UPDATE : Vérification de la dernière version GitHub
+# =========================================================
+$Script:CurrentVersion = "1.0.3"
+$Script:VersionManifestUrl = "https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/version.json"
+
+function Test-ClickByChrisUpdate {
+    try {
+        $manifest = Invoke-RestMethod -Uri $Script:VersionManifestUrl -UseBasicParsing -TimeoutSec 5
+        $latest = ($manifest.version -replace '^[Vv]', '').Trim()
+        $current = $Script:CurrentVersion.Trim()
+
+        if ([string]::IsNullOrWhiteSpace($latest)) { return }
+
+        if ([version]$latest -gt [version]$current) {
+            $msg = "Une nouvelle version est disponible !`r`n`r`n" +
+                   "Version actuelle : $current`r`n" +
+                   "Nouvelle version : $latest`r`n`r`n" +
+                   "Voulez-vous ouvrir la page de téléchargement maintenant ?"
+            $choice = [System.Windows.Forms.MessageBox]::Show(
+                $msg,
+                "ClickByChris Setup Tool - Mise à jour disponible",
+                [System.Windows.Forms.MessageBoxButtons]::YesNo,
+                [System.Windows.Forms.MessageBoxIcon]::Information
+            )
+            if ($choice -eq [System.Windows.Forms.DialogResult]::Yes) {
+                try { Start-Process $manifest.release_notes_url } catch {}
+            }
+        }
+    }
+    catch {
+        # Silencieux : pas d'internet ou GitHub injoignable, on ne bloque pas le lancement
+    }
+}
+
+Add-Type -AssemblyName System.Windows.Forms
+Test-ClickByChrisUpdate
+
+
 # -------------------------
 # ADMIN
 # -------------------------
