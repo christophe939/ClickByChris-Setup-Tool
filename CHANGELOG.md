@@ -1,55 +1,55 @@
-# Changelog
+# 📋 Changelog - ClickByChris Setup Tool
 
-Toutes les modifications importantes du projet sont listées ici.
+Tous les changements notables de ce projet sont documentés dans ce fichier.
 
-## [1.0.3] - Version de test multi-PC avec rapports
+Le format suit les conventions [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
+et le projet respecte le [Semantic Versioning](https://semver.org/lang/fr/).
 
-### Ajouté
-- Rapport d'exécution détaillé après les actions principales.
-- Export automatique des rapports en CSV dans le dossier `Logs`.
-- Logs plus détaillés pour les installations via `winget`.
-- Fenêtre de résumé visuel après les actions terminées.
-- Support amélioré du mode **TOUT FAIRE**.
-- Vérifications multi-PC :
-  - PowerShell ;
-  - PowerShell 7 ;
-  - winget ;
-  - droits administrateur ;
-  - assets ;
-  - icônes ;
-  - son de démarrage.
+---
 
-### Corrigé
-- Correction du problème `Run-All -Plan` avec conversion `PSCustomObject` / `Hashtable`.
-- Correction du problème `RuntimeMap.ContainsKey` avec `OrderedDictionary`.
-- Gestion plus propre du message Windows sur le point de restauration déjà créé dans les dernières 24h.
-- Correction des problèmes d'encodage UTF-8 / BOM.
-- Suppression de l'ancien module Audio Premium dans l'usage normal.
+## [1.0.3] - 2025-01-15
 
-### Modifié
-- Le projet est maintenant orienté **multi-PC**.
-- Les chemins sont davantage portables.
-- Le son de démarrage est conservé, mais le lecteur audio complet est retiré.
-- L'interface se concentre sur les fonctions de préparation Windows.
+### ✨ Ajouté
+- Système multi-PC stage 2 (chemins portables)
+- Détection automatique de l'environnement au démarrage
+- Rapports CSV exportés automatiquement
+- Résumés visuels en fin d'exécution
 
-## [1.0.2] - Correction TOUT FAIRE
+### 🔧 Amélioré
+- Optimisations safe stabilisées
+- Compatibilité Windows 10/11 renforcée
+- Logs temps réel plus détaillés
+- Interface PowerShell/WPF modernisée
 
-### Corrigé
-- Correction de l'erreur de conversion du plan d'exécution dans le mode **TOUT FAIRE**.
-- Amélioration de la compatibilité entre objets PowerShell et hashtables.
+### 🐛 Corrigé
+- Gestion des chemins assets multi-PC
+- Stabilité des points de restauration
+- Détection winget améliorée
 
-## [1.0.1] - Ajout des premiers rapports
+---
 
-### Ajouté
-- Premiers rapports d'exécution.
-- États `OK`, `WARN`, `ERROR`, `SKIP`.
-- Export CSV basique.
+## [1.0.2] - 2024
 
-## [1.0.0] - Base de test
+### ✨ Ajouté
+- Module d'installation des runtimes
+- Création automatique des raccourcis
+- Page audio intégrée
 
-### Ajouté
-- Version de base multi-PC.
-- Launcher `.cmd`.
-- Structure `Assets`, `Config`, `Logs`, `Temp`.
-- Son de démarrage.
-- Suppression visuelle du module Audio Premium.
+---
+
+## [1.0.1] - 2024
+
+### ✨ Ajouté
+- Mode TOUT FAIRE
+- Page d'optimisation safe
+- Création de points de restauration
+
+---
+
+## [1.0.0] - 2024
+
+### 🎉 Version initiale
+- Installation d'applications via winget
+- Interface PowerShell/WPF
+- Launcher CMD avec élévation admin
+- Système de logs
