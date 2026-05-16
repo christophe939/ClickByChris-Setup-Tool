@@ -1,14 +1,24 @@
 # 📋 Changelog - ClickByChris Setup Tool
 
-Tous les changements notables de ce projet sont documentés dans ce fichier.
+Tous les changements notables sont documentés ici.
+Format : [Keep a Changelog](https://keepachangelog.com/) — Versioning : [SemVer](https://semver.org/)
 
-Le format suit les conventions [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
-et le projet respecte le [Semantic Versioning](https://semver.org/lang/fr/).
+---
+
+## [1.0.4] - 2025-01-20 ← VERSION ACTUELLE
+### ✨ Ajouté
+- Vérification automatique des mises à jour depuis GitHub (`version.json`)
+- Notification de mise à jour au démarrage
+- `version.json` intégré dans les releases
+
+### 🔧 Amélioré
+- `install.ps1` mis à jour pour V1.0.4
+- README professionnel avec badges
+- LICENSE MIT officielle ajoutée
 
 ---
 
 ## [1.0.3] - 2025-01-15
-
 ### ✨ Ajouté
 - Système multi-PC stage 2 (chemins portables)
 - Détection automatique de l'environnement au démarrage
@@ -28,8 +38,7 @@ et le projet respecte le [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [1.0.2] - 2024
-
+## [1.0.2] - 2024-12-20
 ### ✨ Ajouté
 - Module d'installation des runtimes
 - Création automatique des raccourcis
@@ -37,8 +46,7 @@ et le projet respecte le [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [1.0.1] - 2024
-
+## [1.0.1] - 2024-12-10
 ### ✨ Ajouté
 - Mode TOUT FAIRE
 - Page d'optimisation safe
@@ -46,8 +54,7 @@ et le projet respecte le [Semantic Versioning](https://semver.org/lang/fr/).
 
 ---
 
-## [1.0.0] - 2024
-
+## [1.0.0] - 2024-12-01
 ### 🎉 Version initiale
 - Installation d'applications via winget
 - Interface PowerShell/WPF
