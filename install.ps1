@@ -1,102 +1,77 @@
 # =========================================================
-# ClickByChris Setup Tool - Official Installer
+# ClickByChris Setup Tool - Official Installer FIXED
 # =========================================================
 
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$OutputEncoding = [System.Text.Encoding]::UTF8
-$ProgressPreference = 'SilentlyContinue'
+$Version = "V1.0.5"
+$ZipUrl = "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/$Version/ClickByChris_Setup_Tool_V1_0_5.zip"
 
-$VersionManifestUrl = "https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/version.json"
 $TempZip = "$env:TEMP\ClickByChris_Setup_Tool.zip"
 $TempDir = "$env:TEMP\ClickByChris_Setup_Tool"
+$TempExtract = "$TempDir\extract_temp"
 
 Write-Host ""
 Write-Host "=========================================" -ForegroundColor Cyan
-Write-Host "     ClickByChris Setup Tool - Installer" -ForegroundColor White
+Write-Host "     ClickByChris Setup Tool Installer"
 Write-Host "=========================================" -ForegroundColor Cyan
 Write-Host ""
 
-# -------------------------
-# Etape 1 : Lecture version.json
-# -------------------------
-Write-Host "[1/5] Recuperation des informations de version..." -ForegroundColor Yellow
+Write-Host "[1/5] Nettoyage..." -ForegroundColor Yellow
+if (Test-Path $TempDir) { Remove-Item $TempDir -Recurse -Force -ErrorAction SilentlyContinue }
+New-Item -ItemType Directory -Path $TempDir -Force | Out-Null
 
+Write-Host "[2/5] Téléchargement de la version $Version..." -ForegroundColor Yellow
 try {
-    $manifest = Invoke-RestMethod -Uri $VersionManifestUrl -UseBasicParsing -TimeoutSec 10
-    $Version  = $manifest.version
-    $ZipUrl   = $manifest.download_url
-    Write-Host "      Version detectee : $Version" -ForegroundColor Green
-}
-catch {
-    Write-Host "      Impossible de lire version.json." -ForegroundColor Red
-    Write-Host "      Erreur : $($_.Exception.Message)" -ForegroundColor Red
+    Invoke-WebRequest -Uri $ZipUrl -OutFile $TempZip -UseBasicParsing -ErrorAction Stop
+} catch {
+    Write-Host "✗ Erreur téléchargement : $_" -ForegroundColor Red
     Pause
-    exit 1
+    exit
 }
 
-if ([string]::IsNullOrWhiteSpace($ZipUrl)) {
-    Write-Host "      Erreur : download_url vide dans version.json" -ForegroundColor Red
-    Pause
-    exit 1
-}
-
-# -------------------------
-# Etape 2 : Telechargement
-# -------------------------
-Write-Host "[2/5] Telechargement de la derniere version..." -ForegroundColor Yellow
-
+Write-Host "[3/5] Extraction du ZIP..." -ForegroundColor Yellow
 try {
-    Invoke-WebRequest -Uri $ZipUrl -OutFile $TempZip -UseBasicParsing
-    Write-Host "      Telechargement termine." -ForegroundColor Green
-}
-catch {
-    Write-Host "      Echec du telechargement : $($_.Exception.Message)" -ForegroundColor Red
+    Expand-Archive -Path $TempZip -DestinationPath $TempExtract -Force
+} catch {
+    Write-Host "✗ Erreur extraction : $_" -ForegroundColor Red
     Pause
-    exit 1
+    exit
 }
 
-# -------------------------
-# Etape 3 : Extraction
-# -------------------------
-Write-Host "[3/5] Extraction des fichiers..." -ForegroundColor Yellow
+Write-Host "[4/5] Réorganisation des fichiers..." -ForegroundColor Yellow
+# Cherche le dossier parent (n'importe quel nom)
+$subFolders = @(Get-ChildItem -Path $TempExtract -Directory -ErrorAction SilentlyContinue)
 
-try {
-    if (Test-Path $TempDir) { Remove-Item $TempDir -Recurse -Force }
-    New-Item -ItemType Directory -Path $TempDir -Force | Out-Null
-    Expand-Archive -Path $TempZip -DestinationPath $TempDir -Force
-    Write-Host "      Extraction reussie." -ForegroundColor Green
+if ($subFolders.Count -gt 0) {
+    $mainFolder = $subFolders[0]
+    Write-Host "  → Dossier détecté : $($mainFolder.Name)" -ForegroundColor Gray
+    
+    # Déplace TOUS les fichiers vers la racine
+    Get-ChildItem -Path $mainFolder.FullName -Force -ErrorAction SilentlyContinue | ForEach-Object {
+        Move-Item -Path $_.FullName -Destination $TempDir -Force -ErrorAction SilentlyContinue
+    }
 }
-catch {
-    Write-Host "      Echec de l extraction : $($_.Exception.Message)" -ForegroundColor Red
+
+# Nettoie le dossier temporaire
+Remove-Item $TempExtract -Recurse -Force -ErrorAction SilentlyContinue
+
+Write-Host "[5/5] Lancement de l'outil..." -ForegroundColor Yellow
+
+# Cherche le launcher .cmd
+$cmdFiles = @(Get-ChildItem -Path $TempDir -Filter "*.cmd" -ErrorAction SilentlyContinue)
+
+if ($cmdFiles.Count -gt 0) {
+    $launcher = $cmdFiles[0]
+    Write-Host "✓ Launcher trouvé : $($launcher.Name)" -ForegroundColor Green
+    Write-Host ""
+    Start-Process -FilePath $launcher.FullName -WorkingDirectory $TempDir
+} else {
+    Write-Host "✗ Aucun fichier .cmd trouvé !" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Fichiers disponibles :" -ForegroundColor Yellow
+    Get-ChildItem -Path $TempDir | Select-Object Name
     Pause
-    exit 1
+    exit
 }
 
-# -------------------------
-# Etape 4 : Recherche launcher
-# -------------------------
-Write-Host "[4/5] Recherche du launcher..." -ForegroundColor Yellow
-
-$Launcher = Get-ChildItem -Path $TempDir -Recurse -Filter "*.cmd" | Select-Object -First 1
-
-if ($Launcher) {
-    Write-Host "      Launcher detecte : $($Launcher.Name)" -ForegroundColor Green
-}
-else {
-    Write-Host "      Launcher introuvable dans le ZIP." -ForegroundColor Red
-    Pause
-    exit 1
-}
-
-# -------------------------
-# Etape 5 : Lancement
-# -------------------------
-Write-Host "[5/5] Lancement de ClickByChris Setup Tool..." -ForegroundColor Yellow
-
-Start-Process $Launcher.FullName
-
-Write-Host ""
-Write-Host "=========================================" -ForegroundColor Cyan
-Write-Host "     Installation terminee avec succes !" -ForegroundColor Green
-Write-Host "=========================================" -ForegroundColor Cyan
-Write-Host ""
+Write-Host "L'outil se lance..." -ForegroundColor Green
+Start-Sleep -Seconds 2

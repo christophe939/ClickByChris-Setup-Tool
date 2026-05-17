@@ -1,8 +1,8 @@
 {
-  "version": "1.0.4",
-  "release_date": "2025-01-15",
-  "download_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/V1.0.4/ClickByChris_Setup_Tool_V1_0_4.zip",
-  "release_notes_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/V1.0.4",
+  "version": "1.0.5",
+  "release_date": "2026-05-17",
+  "download_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/V1.0.5/ClickByChris_Setup_Tool_V1_0_5.zip",
+  "release_notes_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/V1.0.5",
   "installer_url": "https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/install.ps1",
   "min_windows_build": 19041,
   "mandatory": false,
@@ -11,6 +11,10 @@
     "Système multi-PC stage 2 actif",
     "Rapports CSV améliorés",
     "Optimisations safe stabilisées",
-    "Compatibilité Windows 10/11 renforcée"
+    "Compatibilité Windows 10/11 renforcée",
+    "Mise à jour silencieuse automatique",
+    "Détection multi-écran avancée",
+    "Lecteur musique intégré avec album art",
+    "Interface WPF responsive optimisée"
   ]
 }

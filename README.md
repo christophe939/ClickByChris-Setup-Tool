@@ -1,30 +1,42 @@
-# 🚀 ClickByChris Setup Tool
+# ClickByChris Setup Tool
 
-![Version](https://img.shields.io/badge/version-1.0.4-blue)
-![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6)
-![PowerShell](https://img.shields.io/badge/PowerShell-7%20recommended-5391FE)
-![License](https://img.shields.io/badge/license-MIT-green)
+**ClickByChris Setup Tool** est un outil Windows permettant de préparer rapidement un PC avec une interface simple, moderne et centralisée.
 
-**Outil Windows professionnel** pour préparer, optimiser et maintenir rapidement un PC avec une interface moderne, centralisée et multi-PC.
+Il permet notamment de :
+- analyser les informations principales du PC ;
+- installer des applications utiles via `winget` ;
+- installer des composants de compatibilité ;
+- appliquer des optimisations Windows sélectionnées ;
+- créer une structure de dossiers propre ;
+- créer des raccourcis utiles ;
+- consulter les logs d'exécution ;
+- utiliser un mode assisté **TOUT FAIRE** avec résumé avant exécution.
 
----
+## Compatibilité
 
-## ✨ Fonctionnalités
+Cible recommandée :
+- Windows 10
+- Windows 11
+- Windows PowerShell 5.1 minimum
+- PowerShell 7 recommandé si disponible
 
-- 🔍 Analyser les informations principales du PC
-- 📦 Installer des applications utiles via **winget**
-- 🧩 Installer des composants de compatibilité (Visual C++, .NET, WebView2...)
-- ⚙️ Appliquer des optimisations Windows sélectionnées
-- 📁 Créer une structure de dossiers propre
-- 🔗 Créer des raccourcis utiles
-- 📊 Consulter les logs et rapports CSV
-- 🎯 Mode assisté **TOUT FAIRE** avec résumé avant exécution
+Le launcher tente d'utiliser PowerShell 7 si disponible, sinon il bascule sur Windows PowerShell.
 
----
+## Structure du projet
 
-## 🚀 Installation Rapide
-
-### Méthode 1 — Depuis PowerShell (recommandée)
-
-```powershell
-irm https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/install.ps1 | iex
+```text
+ClickByChris_Setup_Tool_V1_0_4/
+├─ ClickByChris_Setup_Tool_V1_0_4.ps1
+├─ Launch_ClickByChris_V1_0_4.cmd
+├─ install.ps1
+├─ settings.json
+├─ version.json
+├─ README.md
+├─ CHANGELOG.md
+├─ LICENSE
+└─ Assets/
+   ├─ logo.png
+   ├─ Icons/
+   │  └─ V2/
+   └─ Sounds/
+      └─ Startup/
