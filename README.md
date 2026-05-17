@@ -12,7 +12,7 @@ Il permet notamment de :
 - consulter les logs d'exécution ;
 - utiliser un mode assisté **TOUT FAIRE** avec résumé avant exécution.
 
-## Compatibilité
+## Compatibilit
 
 Cible recommandée :
 - Windows 10
