@@ -1,5 +1,5 @@
 # =========================================================
-# ClickByChris Setup Tool - Official Installer FIXED
+# ClickByChris Setup Tool - Official Installer V1.0.5
 # =========================================================
 
 $Version = "V1.0.5"
@@ -37,41 +37,20 @@ try {
     exit
 }
 
-Write-Host "[4/5] Réorganisation des fichiers..." -ForegroundColor Yellow
-# Cherche le dossier parent (n'importe quel nom)
-$subFolders = @(Get-ChildItem -Path $TempExtract -Directory -ErrorAction SilentlyContinue)
+Write-Host "[4/5] Recherche du launcher..." -ForegroundColor Yellow
+$launcherPath = Get-ChildItem -Path $TempExtract -Filter "*.cmd" -Recurse | Select-Object -First 1
 
-if ($subFolders.Count -gt 0) {
-    $mainFolder = $subFolders[0]
-    Write-Host "  → Dossier détecté : $($mainFolder.Name)" -ForegroundColor Gray
-    
-    # Déplace TOUS les fichiers vers la racine
-    Get-ChildItem -Path $mainFolder.FullName -Force -ErrorAction SilentlyContinue | ForEach-Object {
-        Move-Item -Path $_.FullName -Destination $TempDir -Force -ErrorAction SilentlyContinue
-    }
-}
-
-# Nettoie le dossier temporaire
-Remove-Item $TempExtract -Recurse -Force -ErrorAction SilentlyContinue
-
-Write-Host "[5/5] Lancement de l'outil..." -ForegroundColor Yellow
-
-# Cherche le launcher .cmd
-$cmdFiles = @(Get-ChildItem -Path $TempDir -Filter "*.cmd" -ErrorAction SilentlyContinue)
-
-if ($cmdFiles.Count -gt 0) {
-    $launcher = $cmdFiles[0]
-    Write-Host "✓ Launcher trouvé : $($launcher.Name)" -ForegroundColor Green
-    Write-Host ""
-    Start-Process -FilePath $launcher.FullName -WorkingDirectory $TempDir
-} else {
-    Write-Host "✗ Aucun fichier .cmd trouvé !" -ForegroundColor Red
-    Write-Host ""
-    Write-Host "Fichiers disponibles :" -ForegroundColor Yellow
-    Get-ChildItem -Path $TempDir | Select-Object Name
+if (-not $launcherPath) {
+    Write-Host "✗ Launcher .cmd introuvable dans le ZIP" -ForegroundColor Red
     Pause
     exit
 }
 
-Write-Host "L'outil se lance..." -ForegroundColor Green
-Start-Sleep -Seconds 2
+Write-Host "[5/5] Lancement du setup..." -ForegroundColor Yellow
+Start-Process -FilePath $launcherPath.FullName -Verb RunAs
+
+Write-Host ""
+Write-Host "Setup lancé ! Le launcher va prendre le relais." -ForegroundColor Green
+Write-Host "Fermeture du PowerShell dans 3 secondes..." -ForegroundColor Gray
+
+Start-Sleep -Seconds 3
