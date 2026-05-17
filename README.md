@@ -15,3 +15,7 @@ ClickByChris_Setup_Tool_V1_0_5/
    │  └─ V2/
    └─ Sounds/
       └─ Startup/
+
+ ## 📥 **INSTALLATION RAPIDE**
+```powershell
+irm https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/install.ps1 | iex
