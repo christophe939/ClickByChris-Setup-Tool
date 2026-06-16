@@ -1,4 +1,263 @@
-# 🔧 Guide de Dépannage - ClickByChris Setup Tool
+# 🔧 Guide de Dépannage
+
+Besoin d'aide ? Ce guide répond aux **questions les plus fréquentes** ! 🆘
+
+---
+
+## 📋 Table des Matières
+
+1. [Problèmes d'Installation](#problèmes-dinstallation)
+2. [Problèmes de Droits](#problèmes-de-droits)
+3. [Problèmes de Téléchargement](#problèmes-de-téléchargement)
+4. [Problèmes de Performance](#problèmes-de-performance)
+5. [Problèmes de Configuration](#problèmes-de-configuration)
+6. [Questions Fréquentes](#questions-fréquentes)
+
+---
+
+## 🚫 Problèmes d'Installation
+
+### ❌ "Script ne s'exécute pas"
+
+**Cause possible** : Politique d'exécution PowerShell restrictive
+
+**Solution** :
+
+```powershell
+# Ouvre PowerShell en tant qu'administrateur
+# Puis exécute :
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Maintenant relance le script
+.\ClickByChris_Setup_Tool_V1_0_5.ps1
+
+❌ "Erreur : Accès refusé"
+
+Cause possible : PowerShell n'est pas en administrateur
+
+Solution :
+
+    Clique droit sur PowerShell
+    Sélectionne "Exécuter en tant qu'administrateur"
+    Relance le script
+
+# Vérifiez que tu es admin :
+# [PS] C:\Users\[Ton Compte]> 
+
+# Doit afficher "Administrator"
+
+❌ "Le script s'arrête sans message"
+
+Cause possible : Une application échoue à installer
+
+Solution :
+
+    Consulte les logs :
+
+    Get-Content $env:APPDATA\ClickByChris\logs\installation.log -Tail 100
+
+    Essaie sans cette application (décochez-la)
+
+    Si le problème persiste, signale un bug sur GitHub
+
+🔐 Problèmes de Droits
+❌ "Windows te demande les droits admin continuellement"
+
+Cause possible : Une application demande des privilèges élevés
+
+Solution :
+
+# Relance PowerShell en administrateur et réessaie
+# Windows ne devrait demander qu'une seule fois
+
+❌ "Erreur UAC bloquée"
+
+Cause possible : UAC trop restrictif
+
+Solution :
+
+    Ouvre Paramètres Windows (Win + I)
+    Va à Confidentialité et sécurité → Contrôle de Compte Utilisateur
+    Mets le curseur à "Notifier uniquement quand des applications modifient l'ordinateur"
+    Relance le script
+
+📥 Problèmes de Téléchargement
+❌ "Impossible de télécharger l'application X"
+
+Cause possible : Connexion internet instable ou serveur indisponible
+
+Solutions :
+
+    Vérifie ta connexion
+
+    # Teste la connexion
+    Test-Connection google.com
+
+    Relance l'installation plus tard
+
+    Vérifie que le serveur est en ligne (visite le site de l'app)
+
+    Si c'est une mise à jour, le serveur peut être surchargé
+
+❌ "Téléchargement très lent"
+
+Cause possible : Connexion internet faible ou congestion réseau
+
+Solutions :
+
+    Vérifie ta vitesse : https://speedtest.net/
+        Minimum recommandé : 10 Mbps
+
+    Ferme les autres applications qui utilisent Internet
+
+    Relance plus tard pendant les heures creuses
+
+    Utilise un VPN si ton ISP throttle les téléchargements
+
+❌ "Erreur de somme de contrôle (hash)"
+
+Cause possible : Fichier téléchargé corrompu
+
+Solution :
+
+# Le script va automatiquement réessayer
+# Si ça persiste, supprime le cache :
+Remove-Item $env:TEMP\ClickByChris -Recurse -Force
+
+# Puis relance l'installation
+
+⚡ Problèmes de Performance
+❌ "L'installation prend très longtemps"
+
+Cause possible : Faible puissance système ou disque lent
+
+Solutions :
+
+    Libère de l'espace disque
+
+    # Vérifiez l'espace disponible
+    Get-PSDrive -PSProvider FileSystem | Select-Object Name, @{N="Used (GB)"; E={[math]::Round(( $ _.Used/1GB),2)}}, @{N="Free (GB)"; E={[math]::Round(( $ _.Free/1GB),2)}}
+
+    Ferme les applications inutiles
+
+    Redémarrage avant installation
+
+    SSD vs HDD : SSD = installation 2-3x plus rapide
+
+❌ "PC figé pendant l'installation"
+
+Cause possible : Installation trop gourmande en ressources
+
+Solution :
+
+    ❌ Ne force pas à arrêter
+    ✅ Attends 5-10 minutes
+    Si ça persiste > 30 min :
+
+    # Regarde les logs
+    Get-Content $env:APPDATA\ClickByChris\logs\installation.log -Tail 50
+
+⚙️ Problèmes de Configuration
+❌ "settings.json invalide"
+
+Cause possible : Formatage JSON incorrect
+
+Solution :
+
+    Ouvre settings.json dans VS Code
+    Vérifie la coloration syntaxe
+    Valide le JSON sur https://jsonlint.com/
+    Corrige les virgules et accolades manquantes
+
+Exemple valide :
+
+{
+  "language": "FR",
+  "autoUpdate": true,
+  "applications": {
+    "chrome": true,
+    "firefox": false
+  }
+}
+
+❌ "Applications restent cochées après redémarrage"
+
+Cause possible : Fichier de configuration non sauvegardé
+
+Solution :
+
+# Supprime la config et recommence
+Remove-Item $env:APPDATA\ClickByChris\settings.json
+
+# Relance le script
+.\ClickByChris_Setup_Tool_V1_0_5.ps1
+
+❓ Questions Fréquentes
+Q1 : Puis-je installer sur Mac ou Linux ?
+
+R : Non, ClickByChris ne fonctionne que sur Windows 10/11.
+
+Pour Mac/Linux, essaie Homebrew (Mac) ou apt (Linux).
+Q2 : Puis-je désinstaller les applications ?
+
+R : Oui, via Paramètres Windows → Applications → Ajouter ou supprimer des programmes.
+
+ClickByChris installe seulement, il ne gère pas la désinstallation (c'est volontaire pour éviter les accidents).
+Q3 : Est-ce que ClickByChris ajoute des logiciels espions ?
+
+R : Non, absolument pas ! ClickByChris est :
+
+    ✅ Open Source (code visible sur GitHub)
+    ✅ Sans tracking (pas de télémétrie)
+    ✅ Offline possible (une fois les apps téléchargées)
+
+Q4 : Puis-je automatiser l'installation ?
+
+R : Oui ! Modifie settings.json pour sélectionner les apps par défaut :
+
+{
+  "applications": {
+    "chrome": true,
+    "vscode": true,
+    "git": true
+  }
+}
+
+Puis utilise :
+
+# Installation silencieuse (sans interface)
+.\ClickByChris_Setup_Tool_V1_0_5.ps1 -Silent
+
+Q5 : Est-ce gratuit ?
+
+R : Oui, 100% gratuit ! Et Open Source.
+Q6 : Puis-je contribuer ?
+
+R : Oui, nous aimons les contributions ! Voir CONTRIBUTING.md
+Q7 : Quel est le roadmap ?
+
+R : Voir FEATURES.md pour la liste complète !
+🆘 Problème non Résolu ?
+
+    Consulte les logs :
+
+    Get-Content $env:APPDATA\ClickByChris\logs\installation.log | Select-String "ERROR"
+
+    Signale un bug sur GitHub Issues
+
+    Inclus :
+        Description du problème
+        Version Windows
+        Version PowerShell
+        Logs pertinentes
+
+💬 Contacte-nous
+
+    🐛 Bugs : https://github.com/[username]/ClickByChris-Setup-Tool/issues
+    💬 Questions : https://github.com/[username]/ClickByChris-Setup-Tool/discussions
+    📧 Email : support@clickbychris.com
+
+Merci d'avoir choisi ClickByChris ! 🎉# 🔧 Guide de Dépannage - ClickByChris Setup Tool
 
 [![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?logo=windows11&logoColor=white)](https://www.microsoft.com/windows)
 [![Status](https://img.shields.io/badge/Status-Updated-success.svg)](../CHANGELOG.md)
