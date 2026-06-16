@@ -1,3 +1,242 @@
+# 📥 Guide d'Installation
+
+Bienvenue dans le guide d'installation de **ClickByChris Setup Tool** ! 🚀
+
+---
+
+## 📋 Prérequis
+
+### Système d'Exploitation
+- ✅ **Windows 10** (version 1909 ou supérieure)
+- ✅ **Windows 11** (toutes les versions)
+
+### Logiciels Requis
+- ✅ **PowerShell 5.1** ou supérieur (inclus par défaut)
+- ✅ **Droits Administrateur** (obligatoire)
+- ✅ **Connexion Internet** (pour télécharger les applications)
+
+### Configuration Recommandée
+- **RAM** : 4 GB minimum
+- **Disque** : 50 GB d'espace libre
+- **Réseau** : Connexion stable (10 Mbps minimum)
+
+---
+
+## 🔧 Installation Rapide (Recommandée)
+
+### Étape 1 : Télécharger le Fichier
+
+```powershell
+# Télécharge automatiquement et lance l'installation
+iex (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/[username]/ClickByChris-Setup-Tool/main/install.ps1')
+
+Étape 2 : Accepter l'UAC
+
+Une fenêtre Contrôle de Compte Utilisateur apparaîtra → Clique sur OUI
+Étape 3 : Configurer les Applications
+
+    Une fenêtre PowerShell s'ouvrira
+    Sélectionne les applications que tu veux installer
+    Appuie sur Enter pour lancer l'installation
+
+Étape 4 : Attendre
+
+L'installation se fait automatiquement. Cela peut prendre 10-30 minutes selon les applications choisies.
+📦 Installation Manuel
+
+Si tu préfères télécharger et installer manuellement :
+Option 1 : Via GitHub (Recommandé)
+
+    Télécharge le ZIP depuis GitHub Releases
+    Décompresse le fichier ZIP
+    Lance Launch_ClickByChris_V1_0_5.cmd
+    Accepte l'UAC et suis les instructions
+
+Option 2 : Via Git
+
+# Clone le repository
+git clone https://github.com/[username]/ClickByChris-Setup-Tool.git
+
+# Entre dans le dossier
+cd ClickByChris-Setup-Tool
+
+# Lance le script
+.\ClickByChris_Setup_Tool_V1_0_5.ps1
+
+⚙️ Configuration
+Fichier settings.json
+
+Tu peux personnaliser l'installation en modifiant settings.json :
+
+{
+  "language": "FR",
+  "autoUpdate": true,
+  "installPath": "C:\\Program Files",
+  "logLevel": "INFO",
+  "applications": {
+    "chrome": true,
+    "firefox": true,
+    "vscode": false,
+    "git": true
+  }
+}
+
+Options Principales
+Paramètre 	Type 	Description
+language 	string 	Langue : FR ou EN
+autoUpdate 	boolean 	Mise à jour auto des applications
+installPath 	string 	Chemin d'installation
+logLevel 	string 	DEBUG, INFO, WARNING, ERROR
+🚀 Démarrage
+Lancer l'Installation
+
+# Si tu as le dossier en local
+cd C:\chemin\vers\ClickByChris
+.\ClickByChris_Setup_Tool_V1_0_5.ps1
+
+# Ou en une ligne depuis n'importe où
+powershell -ExecutionPolicy Bypass -Command "& 'C:\chemin\vers\ClickByChris\ClickByChris_Setup_Tool_V1_0_5.ps1'"
+
+Sélectionner les Applications
+
+Une fenêtre interactive te permettra de :
+
+    ✅ Cocher les applications à installer
+    ❌ Décocher les applications indésirables
+    📊 Voir la taille totale à télécharger
+
+Valider l'Installation
+
+Une fois ta sélection faite, confirme avec Y (Yes) ou N (No).
+📊 Étapes de l'Installation
+
+┌─────────────────────────────┐
+│ 1. Vérification du Système  │ (2-5 sec)
+└──────────────┬──────────────┘
+               │
+┌──────────────▼──────────────┐
+│ 2. Téléchargement des Apps  │ (5-15 min)
+└──────────────┬──────────────┘
+               │
+┌──────────────▼──────────────┐
+│ 3. Installation des Apps    │ (5-20 min)
+└──────────────┬──────────────┘
+               │
+┌──────────────▼──────────────┐
+│ 4. Configuration Finale     │ (1-5 min)
+└──────────────┬──────────────┘
+               │
+┌──────────────▼──────────────┐
+│ ✅ Installation Terminée !  │
+└─────────────────────────────┘
+
+❌ Dépannage
+Erreur : "L'accès est refusé"
+
+Solution : Ouvre PowerShell en tant qu'Administrateur
+
+# Clique droit sur PowerShell → "Exécuter en tant qu'administrateur"
+
+Erreur : "Impossible de télécharger l'application X"
+
+Solutions :
+
+    Vérifiez ta connexion Internet
+    Essaie plus tard (le serveur est peut-être indisponible)
+    Télécharge manuellement depuis le site officiel
+
+L'Installation est Très Lente
+
+Solutions :
+
+    Vérifie ta vitesse Internet (minimum 10 Mbps recommandé)
+    Ferme les autres téléchargements
+    Essaie une installation ultérieurement
+
+📝 Logs et Diagnostics
+
+Les logs sont sauvegardés dans :
+
+C:\Users\[TonNom]\AppData\Local\ClickByChris\logs\
+
+Pour diagnostiquer les problèmes :
+
+# Affiche les 50 dernières lignes du log
+Get-Content $env:APPDATA\ClickByChris\logs\installation.log -Tail 50
+
+✅ Vérifier l'Installation
+
+Une fois terminé, vérifie que tout fonctionne :
+
+# Vérifie les applications installées
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | 
+  Select-Object DisplayName | 
+  Format-Table -AutoSize
+
+🎯 Prochaines Étapes
+
+✅ Installation réussie ! Maintenant :
+
+    Explore les applications installées
+    Configure tes paramètres personnels
+    Signale les bugs via GitHub Issues
+    Contribue au projet ! Voir CONTRIBUTING.md
+
+💬 Besoin d'Aide ?
+
+    📖 Voir TROUBLESHOOTING.md pour plus de solutions
+    🐛 Signaler un bug : GitHub Issues
+    💬 Questions : GitHub Discussions
+    📧 Email : support@clickbychris.com
+
+📜 License
+
+ClickByChris est sous licence MIT. Voir LICENSE pour plus de détails.
+
+
+---
+
+## 6️⃣ **ISSUE_TEMPLATE_BUG_REPORT.md**
+
+```markdown
+---
+name: 🐛 Bug Report
+about: Signaler un bug ou un problème
+title: "[BUG] "
+labels: bug
+assignees: ''
+
+---
+
+## 🐛 Description du Bug
+*Décris le problème de manière claire et concise*
+
+## 📋 Étapes pour Reproduire
+1. ...
+2. ...
+3. ...
+
+## ✅ Comportement Attendu
+*Qu'est-ce qui devrait se passer ?*
+
+## ❌ Comportement Actuel
+*Qu'est-ce qui se passe vraiment ?*
+
+## 📸 Screenshots (optionnel)
+*Si applicable, ajoute des captures d'écran*
+
+## 💻 Environnement
+- **OS** : Windows 10/11
+- **Version PS** : 5.1 / 7.x
+- **Version ClickByChris** : v1.0.x
+
+## 📝 Logs
+
+Colle ici les erreurs/logs pertinentes
+
+
+## 📌 Contexte Additionnel
+*Autre information utile ?*
 # 📖 Installation Guide - ClickByChris Setup Tool
 
 [![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?logo=windows11&logoColor=white)](https://www.microsoft.com/windows)
