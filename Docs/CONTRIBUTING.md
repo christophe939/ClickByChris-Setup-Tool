@@ -1,3 +1,296 @@
+# 🤝 Guide de Contribution
+
+Merci de vouloir contribuer à **ClickByChris Setup Tool** ! 🎉
+
+Ce guide t'explique comment contribuer efficacement au projet.
+
+---
+
+## 📋 Table des Matières
+
+1. [Code de Conduite](#-code-de-conduite)
+2. [Comment Contribuer](#-comment-contribuer)
+3. [Processus de Pull Request](#-processus-de-pull-request)
+4. [Standards de Code](#-standards-de-code)
+5. [Directives de Commit](#-directives-de-commit)
+
+---
+
+## 📜 Code de Conduite
+
+En participant à ce projet, tu acceptes notre [Code de Conduite](CODE_OF_CONDUCT.md).
+
+---
+
+## 🚀 Comment Contribuer
+
+### Types de Contributions
+
+- 🐛 **Signaler des Bugs** → [BUG_REPORT.md](.github/ISSUE_TEMPLATE/BUG_REPORT.md)
+- ✨ **Proposer des Fonctionnalités** → Créer une Issue avec le label `enhancement`
+- 📖 **Améliorer la Documentation** → Fork + Modifie + Pull Request
+- 🔧 **Corriger des Bugs** → Fork + Fix + Pull Request
+- ♻️ **Refactoriser du Code** → Discusssion dans une Issue d'abord
+
+### ✅ Avant de Commencer
+
+1. **Fork** le repository
+2. **Clone** ton fork localement
+3. **Crée une branche** : `git checkout -b feature/ma-feature`
+4. **Assure-toi** que tout fonctionne
+
+---
+
+## 🔄 Processus de Pull Request
+
+### 1️⃣ Avant de Soumettre
+
+- ✅ Teste **ton code complètement**
+- ✅ Suis les **standards de code** (voir ci-dessous)
+- ✅ **Documente** tes changements
+- ✅ Ajoute des **tests** si applicable
+- ✅ Met à jour **CHANGELOG.md**
+
+### 2️⃣ Soumettre une PR
+
+1. **Push** ta branche vers ton fork
+2. **Crée une Pull Request** vers `main`
+3. Utilise ce **template** :
+
+```markdown
+## 📝 Description
+*Décris les changements effectués*
+
+## 🎯 Type de Changement
+- [ ] 🐛 Bug Fix
+- [ ] ✨ Feature
+- [ ] 📖 Documentation
+- [ ] ♻️ Refactoring
+
+## ✅ Checklist
+- [ ] Mon code suit les standards du projet
+- [ ] J'ai testé mes changements
+- [ ] J'ai documenté les changements
+- [ ] J'ai mis à jour CHANGELOG.md
+- [ ] Pas de breaking changes
+
+## 🔗 Issues Liées
+Closes #(issue number)
+
+3️⃣ Review et Merge
+
+    Les mainteneurs revieweront ta PR
+    Tu peux avoir besoin de faire des ajustements
+    Une fois approuvée → Merge et publication ! 🎉
+
+💻 Standards de Code
+PowerShell
+
+# ✅ BON
+function Get-UserInput {
+    param(
+        [string]$Prompt = "Entrez quelque chose"
+    )
+    
+    $input = Read-Host $Prompt
+    return  $ input
+}
+
+# ❌ MAUVAIS
+function getinput( $ p){
+$i=read-host $p
+return $i}
+
+Règles :
+
+    Utilise PascalCase pour les noms de fonctions
+    Commente les sections complexes
+    Ajoute des paramètres nommés
+    Teste sur PowerShell 5.1 et 7.x
+
+Markdown
+
+# ✅ BON
+## Section Principale
+### Sous-section
+
+Texte clair et bien formaté.
+
+# ❌ MAUVAIS
+# SECTION
+texte sans structure
+
+Règles :
+
+    H1 = Titre du document
+    H2 = Sections principales
+    H3 = Sous-sections
+    Utilise des listes à puces pour les points
+
+📌 Directives de Commit
+
+Utilise ce format Conventional Commits :
+
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+
+Types Valides
+
+    feat : Nouvelle fonctionnalité
+    fix : Correction de bug
+    docs : Documentation
+    style : Formatage, pas de changement de code
+    refactor : Refactorisation
+    perf : Amélioration de performance
+    test : Ajout de tests
+
+Exemples
+
+# ✅ BON
+git commit -m "feat(installer): add Windows 11 detection"
+git commit -m "fix(ps1): resolve admin check issue"
+git commit -m "docs: update installation guide"
+
+# ❌ MAUVAIS
+git commit -m "update stuff"
+git commit -m "Fix"
+
+🔒 Politique de Sécurité
+
+⚠️ Vulnérabilités de Sécurité → Ne pas signaler via Issues publiques !
+
+👉 Voir SECURITY.md
+❓ Questions ?
+
+    💬 Discussions : GitHub Discussions
+    📧 Email : support@clickbychris.com
+    🐛 Issues : Pour les bugs spécifiques
+
+🙏 Merci !
+
+Ton aide est précieuse pour améliorer ClickByChris ! 🚀
+
+
+---
+
+## 4️⃣ **FEATURES.md**
+
+```markdown
+# ✨ Fonctionnalités
+
+## 🎯 Vue d'Ensemble
+
+ClickByChris Setup Tool est un **installateur Windows automatisé** qui configure complètement ton système en quelques clics.
+
+---
+
+## 📦 Fonctionnalités Principales
+
+### 1️⃣ Installation Automatisée
+
+✅ **Installation en un clic**
+- Installe automatiquement tous les logiciels sélectionnés
+- Compatible Windows 10 et 11
+- Détection automatique du système
+
+✅ **Configuration Intelligente**
+- Paramètres personnalisés par application
+- Gestion des dépendances automatique
+- Installation silencieuse disponible
+
+### 2️⃣ Gestion des Applications
+
+📱 **Applications Supportées**
+- Navigateurs (Chrome, Firefox, Edge, Brave)
+- Outils de développement (Visual Studio Code, Git, Node.js)
+- Utilitaires système (7-Zip, WinRAR, VLC)
+- Outils Office (LibreOffice, etc.)
+
+⚙️ **Contrôle Complet**
+- Cocher/Décocher les applications
+- Choisir les versions
+- Options d'installation personnalisées
+
+### 3️⃣ Vérification du Système
+
+🔍 **Diagnostic Automatique**
+- Vérification de la version Windows
+- Détection des droits administrateur
+- Vérification des dépendances
+
+✅ **Rapport de Status**
+- État de l'installation en temps réel
+- Logs détaillés disponibles
+- Suggestions de corrections
+
+### 4️⃣ Gestion Avancée
+
+🛡️ **Sécurité**
+- Vérification des signatures numériques
+- Détection des téléchargements corrompus
+- Protection contre les installations non autorisées
+
+📊 **Monitoring**
+- Suivi de l'installation en temps réel
+- Notifications de progression
+- Rapports détaillés
+
+### 5️⃣ Configuration Personnalisée
+
+⚙️ **Paramètres**
+- Fichier `settings.json` personnalisable
+- Profils d'installation
+- Configuration par défaut sauvegardée
+
+💾 **Historique**
+- Sauvegarde automatique des configurations
+- Restauration possible des paramètres
+
+---
+
+## 🔄 Fonctionnalités à Venir (Roadmap)
+
+### Version 1.1.0
+- [ ] Interface graphique WPF
+- [ ] Support du mode silencieux complet
+- [ ] Plus d'applications disponibles
+
+### Version 1.2.0
+- [ ] Planificateur d'installations
+- [ ] Mises à jour automatiques
+- [ ] Support des scripts personnalisés
+
+### Version 2.0.0
+- [ ] Application Windows Store
+- [ ] Synchronisation cloud
+- [ ] Mode entreprise
+
+---
+
+## 📊 Comparaison avec Autres Outils
+
+| Fonctionnalité | ClickByChris | Ninite | Chocolatey |
+|---|---|---|---|
+| Interface GUI | ⏳ Prochainement | ✅ | ❌ |
+| Configuration Facile | ✅ | ✅ | ❌ |
+| Gratuit & Open Source | ✅ | ✅ | ✅ |
+| Mises à Jour Auto | ✅ | ✅ | ✅ |
+| Scripts Personnalisés | ⏳ | ❌ | ✅ |
+
+---
+
+## 🚀 Commencer
+
+👉 Voir [INSTALLATION.md](INSTALLATION.md) pour installer et utiliser ClickByChris !
+
+---
+
+## 💡 Suggestions de Nouvelles Fonctionnalités ?
+
+📝 **Crée une Issue** avec le label `enhancement` !
 <!DOCTYPE html><html  data-color-mode-forced="light" lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, interactive-widget=resizes-content"><style id="nuxt-ui-colors">@layer theme {
   :root, :host {
   --ui-color-primary-50: var(--color-browny-50, );
