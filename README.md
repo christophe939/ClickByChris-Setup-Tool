@@ -14,8 +14,6 @@
 
 👉 Télécharge le fichier : `ClickByChris_Setup_Tool_v1.0.0.zip`
 
-![Télécharger](./Assets/screenshots/01_telechargement.png)
-
 ---
 
 ### **2️⃣ Décompresser**
@@ -26,8 +24,6 @@
 
 👉 Choisis un dossier (par exemple : `C:\ClickByChris`)
 
-![Décompresser](./Assets/screenshots/02_extraire.png)
-
 ---
 
 ### **3️⃣ Lancer le script**
@@ -36,15 +32,11 @@
 
 👉 **Double-clic** sur : `Launch_ClickByChris.cmd`
 
-![Lancer](./Assets/screenshots/03_lancer.png)
-
 ---
 
 ### **4️⃣ L'interface s'affiche !**
 
 L'interface WPF s'ouvre → Tu vois un menu avec plein d'options
-
-![Interface](./Assets/screenshots/04_interface_principale.png)
 
 ---
 
@@ -60,8 +52,6 @@ L'outil installe TOUT automatiquement
 
 
 **C'est tout ! Rien à faire, ça le fait tout seul !**
-
-![Tout faire](./Assets/screenshots/05_tout_faire.png)
 
 ---
 
