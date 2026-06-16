@@ -2,15 +2,17 @@
 
 **Prépare ton PC Windows en quelques clics !**
 
+Automatise l'installation de tes apps, drivers et optimisations Windows. Simple, rapide, sécurisé.
+
 ---
 
-## ⚡ Comment ça marche ? (4 étapes = 5 minutes)
+## ⚡ Installation Rapide (4 étapes = 5 minutes)
 
 ### **1️⃣ Télécharger**
 
 👉 Va ici : https://github.com/christophe939/ClickByChris-Setup-Tool/releases
 
-👉 Clique sur **v1.0.0**
+👉 Clique sur la **dernière version** (ex: `v1.0.0`)
 
 👉 Télécharge le fichier : `ClickByChris_Setup_Tool_v1.0.0.zip`
 
@@ -38,6 +40,8 @@
 
 L'interface WPF s'ouvre → Tu vois un menu avec plein d'options
 
+**C'est tout ! 🎉**
+
 ---
 
 ## 🎮 Qu'est-ce que tu peux faire ?
@@ -59,112 +63,218 @@ L'outil installe TOUT automatiquement
 
 | Fonction | Qu'est-ce que ça fait ? |
 |---|---|
-| 📦 **Installer Apps** | Installe automatiquement : Office, VLC, 7-Zip, Chrome, Discord, etc |
-| 🔧 **Runtimes** | Installe : .NET, Visual C++, DirectX (pour les jeux) |
+| 📦 **Installer Apps** | Chrome, Firefox, Discord, VLC, 7-Zip, Office, etc |
+| 🔧 **Runtimes** | .NET, Visual C++, DirectX, Java (pour les jeux) |
 | ⚡ **Optimisations** | Nettoie Windows, enlève le bloatware inutile |
 | 🎮 **Drivers** | Trouve et installe tes drivers GPU et chipset |
-| 📁 **Structure** | Crée des dossiers organisés sur ton disque |
-| 🎵 **Musique** | Lecteur de musique intégré |
-| 📊 **Rapports** | Exporte ce qui a été fait en fichier CSV |
+| 📁 **Structure Dossiers** | Crée une organisation logique sur ton disque |
+| 🎵 **Lecteur Musique** | Écoute ta musique en attendant |
+| 📊 **Rapports** | Exporte ce qui a été fait en CSV |
 
 ---
 
-## ✅ C'est fait ! Quoi vérifier ?
+## ✅ Vérification Après Installation
 
 Après que le script finisse :
 
-✅ Regarde les applications dans `Démarrer`  
-✅ Lis le rapport CSV qui s'affiche  
-✅ Redémarre si demandé (pour les drivers)
+✅ Ouvre ton **Panneau de Contrôle** → **Programmes et Fonctionnalités**
 
-**C'est tout ! Ton PC est prêt ! 🎉**
+✅ Vérifie que les apps sont là : Chrome, Discord, VLC, etc
+
+✅ Essaie de lancer une app pour la tester
+
+✅ Check tes dossiers : ils sont bien organisés ?
+
+✅ Si tout marche → **C'est bon ! 🎉**
 
 ---
 
-## ❌ Ça ne marche pas ? (Solutions rapides)
+## 🆘 Besoin d'Aide ?
 
-### **"L'interface ne s'affiche pas"**
+### 💬 **Rejoins notre Discord !**
 
-**Solution :**
-1. Ouvre PowerShell (clic droit → "Exécuter en tant qu'admin")
-2. Tape :
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+**Tu préfères discuter en direct ?**
 
-    Appuie sur Entrée
-    Tape Y et Entrée
-    Essaie de lancer Launch_ClickByChris.cmd à nouveau
+👉 **[Discord ClickByChris](https://discord.gg/clickbychris)**
 
-"Erreur : fichier introuvable"
+Sur Discord tu peux :
+- 🆘 Demander de l'aide rapidement
+- 💡 Suggérer des features
+- 🐛 Signaler des bugs
+- 👥 Discuter avec la communauté
+- 📢 Recevoir les annonces en premier
+
+---
+
+### 📧 **Ou par Email**
+
+📧 **chris.clickby@gmail.com**
+
+**Utilise le [template d'email](./Docs/EMAIL_TEMPLATE.md)** pour bien décrire ton problème
+
+---
+
+### 📖 **Documentation Complète**
+
+| Doc | Utilité |
+|-----|---------|
+| [📋 Installation Détaillée](./Docs/INSTALLATION.md) | Guide complet, étape par étape |
+| [🔧 Dépannage / FAQ](./Docs/TROUBLESHOOTING.md) | Solutions aux problèmes courants |
+| [✨ Toutes les Fonctionnalités](./Docs/FEATURES.md) | Explication complète de chaque feature |
+| [🛡️ Sécurité](./Docs/SECURITY.md) | Signaler une vulnérabilité |
+| [📧 Template d'Email](./Docs/EMAIL_TEMPLATE.md) | Modèle pour nous contacter |
+| [🎮 Discord](./Docs/DISCORD_SERVER.md) | Guide du serveur Discord |
+| [📝 Changelog](./CHANGELOG.md) | Historique des versions |
+
+---
+
+## ⚠️ Erreurs Courantes
+
+### **L'interface ne s'affiche pas**
+
+```powershell
+❌ Erreur : "Could not load file or assembly"
 
 Solution :
 
-    Vérifie que tu as bien décompressé le ZIP
-    Vérifie que le fichier ClickByChris_Setup_Tool.ps1 existe dans le dossier
-    Essaie de décompresser à nouveau
+    Télécharge .NET 6.0 Runtime
+    Installe-le
+    Relance ClickByChris
 
-"L'installation s'arrête / erreur winget"
+Winget ne marche pas
+
+❌ "winget" is not recognized as an internal or external command
 
 Solution :
 
-    Assure-toi que tu utilises Windows 10 (21H1+) ou Windows 11
-    Si c'est un vieux Windows 10, il faut installer winget manuellement (voir FAQ)
-    Redémarre l'ordinateur et réessaie
+    Ouvre le Microsoft Store
+    Cherche "App Installer"
+    Clique sur "Obtenir"
+    Relance ClickByChris
 
-"Besoin d'aide pour autre chose ?"
+Erreur : Access Denied
 
-👉 Voir la doc complète : TROUBLESHOOTING.md
+❌ Access to the path is denied
 
-👉 Ou envoie un mail : chris.clickby@gmail.com
-💻 Tu dois avoir quoi sur ton PC ?
+Solution :
 
-    ✅ Windows 10 (version 21H1 ou plus récente) ou Windows 11
-    ✅ Droits Admin (tu dois pouvoir cliquer "Oui" à "Autoriser les modifications ?")
-    ✅ Connexion Internet (pour télécharger les applications)
+    Ferme ClickByChris
+    Fais clic droit sur Launch_ClickByChris.cmd
+    Clique sur "Exécuter en tant qu'administrateur"
+    Relance
 
-C'est tout !
-📖 Documentation complète
+Autre problème ?
 
-Si tu veux en savoir plus :
+👉 Vois le Troubleshooting complet
+🔒 Sécurité
 
-    Installation détaillée
-    Dépannage (FAQ)
-    Toutes les fonctionnalités
-    Sécurité
+ClickByChris est sécurisé ! ✅
 
-🐛 Signaler un bug
+    ✅ Code open-source : Tu peux voir ce qu'il fait
+    ✅ Pas de tracking : On ne collecte rien
+    ✅ Pas de pubs : Gratuit et sans pubs
+    ✅ Scripts signés : Vérifiés pour éviter les malware
 
-Quelque chose ne marche pas ?
+Tu as trouvé une faille de sécurité ?
 
-    📧 Envoie un mail : chris.clickby@gmail.com
-    🐛 Ou crée une issue GitHub : Click here
+👉 Vois le document Sécurité
+🎯 Exemple d'Utilisation
+Scénario : Je viens d'installer Windows 11
 
-Explique :
+1️⃣ Télécharge ClickByChris
+2️⃣ Lance Launch_ClickByChris.cmd
+3️⃣ Clique sur "TOUT FAIRE"
+4️⃣ Attends 15-20 minutes
+5️⃣ Ton PC est prêt ! 🎉
 
-    ❌ Qu'est-ce qui ne marche pas ?
-    💻 Quel Windows tu utilises ?
-    📸 Des captures d'écran si possible
+Résultat :
+✅ Windows est optimisé
+✅ Tous les drivers sont installés
+✅ Chrome, Discord, Office, etc sont là
+✅ Tes dossiers sont bien organisés
+✅ Aucune config à faire manuellement !
 
-🤝 Besoin d'aide ?
-Problème 	Solution
-Interface ne s'affiche pas 	Voir solution
-Erreur fichier introuvable 	Voir solution
-Winget ne marche pas 	Voir solution
-Autre problème 	Mail : chris.clickby@gmail.com
+📊 Tableau de Compatibilité
+Windows 	Supporté 	Notes
+Windows 11 	✅ OUI 	Recommandé
+Windows 10 	✅ OUI 	Testé et approuvé
+Windows 7/8 	❌ NON 	Trop vieux
+Architecture 	Supportée
+64-bit 	✅ OUI
+32-bit 	❌ NON
+🚀 Features Plannifiées (v1.1.0+)
+
+🔜 Interface sombre (Dark Mode)
+🔜 Support multi-langue (FR, EN, ES, DE)
+🔜 Planificateur de nettoyage automatique
+🔜 Statistiques d'utilisation système
+🔜 Gestionnaire de mises à jour auto
+🔜 Support des applications Winget supplémentaires
+
+📝 Changelog
+
+Version 1.0.0 - Juin 2026
+✨ Features
+
+    ✅ Installation automatique des apps
+    ✅ Installation des runtimes (.NET, Visual C++, etc)
+    ✅ Optimisations Windows
+    ✅ Installation des drivers
+    ✅ Création de structure de dossiers
+    ✅ Lecteur de musique intégré
+    ✅ Génération de rapports CSV
+
+🐛 Bugs Fixes
+
+    Interface WPF stable
+    Gestion d'erreurs améliorée
+    Support Windows 10 et 11
+
+📚 Documentation
+
+    README complet
+    Troubleshooting guide
+    SECURITY policy
+    Installation guide
+
+👉 Voir le changelog complet
+🤝 Contribution
+
+Tu veux aider à améliorer ClickByChris ?
+
+Regarde CONTRIBUTING.md pour savoir comment contribuer ! 🙏
 📜 License
 
-MIT License - Tu peux utiliser ce tool gratuitement !
+Ce projet est sous MIT License.
 
-Voir la license
+Tu peux :
+
+    ✅ L'utiliser gratuitement
+    ✅ Le modifier
+    ✅ Le redistribuer
+    ✅ L'utiliser commercialement
+
+Condition : Mentionne simplement l'auteur original.
+
+👉 Voir la license complète
 👨‍💻 Créateur
 
 ClickByChris - Christophe
+Lien 	URL
+📧 Email 	chris.clickby@gmail.com
+🌍 GitHub 	@christophe939
+🎮 Discord 	Serveur ClickByChris
+🙏 Merci !
 
-📧 Email : chris.clickby@gmail.com
-🌍 GitHub : @christophe939
+Merci d'utiliser ClickByChris Setup Tool ! 🚀
+
+Si tu l'aimes, laisse une ⭐ sur GitHub ! 
+
+Des questions ? Rejoins le Discord ! 🎮
 <div align="center">
-
 👉 Télécharge maintenant 🚀
 
 Version 1.0.0 - Juin 2026
+
+Made with ❤️ by ClickByChris
 </div> ``` 
