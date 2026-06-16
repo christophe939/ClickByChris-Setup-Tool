@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "release_date": "2026-06-16",
+  "download_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/v1.0.0/ClickByChris_Setup_Tool_v1.0.0.zip",
+  "release_notes_url": "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/v1.0.0",
+  "installer_url": "https://raw.githubusercontent.com/christophe939/ClickByChris-Setup-Tool/main/install.ps1",
+  "min_windows_build": 19041,
+  "mandatory": false,
+  "channel": "stable",
+  "changelog": [
+    "Détection multi-écran avancée",
+    "Interface WPF responsive optimisée",
+    "Système multi-PC stage 2 actif",
+    "Rapports CSV améliorés",
+    "Optimisations safe stabilisées",
+    "Compatibilité Windows 10/11 renforcée",
+    "Mise à jour silencieuse automatique",
+    "Lecteur musique intégré avec album art"
+  ]
+}
