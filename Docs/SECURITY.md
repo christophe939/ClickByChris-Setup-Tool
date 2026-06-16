@@ -6,7 +6,7 @@
 
 Si tu découvres une **vulnérabilité de sécurité**, contacte-nous **directement et confidentiellement** :
 
-📧 **Email** : security@clickbychris.com  
+📧 **Email** : chris.clickby@gmail.com  
 🔐 **Détails** : [Voir ci-dessous](#comment-signaler)
 
 ---
