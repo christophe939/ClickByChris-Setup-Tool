@@ -24,6 +24,7 @@ Outil Windows permettant de préparer rapidement un PC avec une interface simple
 
 ## 🚀 Installation Rapide
 
+
 ```bash
 # Clone le repository
 git clone https://github.com/christophe939/ClickByChris-Setup-Tool.git
@@ -114,5 +115,18 @@ Github
 - Base solide pour futures améliorations
 - Testé sur Windows 10 & 11
 - Compatible multi-PC stage 2
+
+---
+<div align="center">
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D4?logo=windows)
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue?logo=powershell)
+![GitHub Release](https://img.shields.io/github/v/release/christophe939/ClickByChris-Setup-Tool)
+
+**[📥 Download v1.0.0](https://github.com/christophe939/ClickByChris-Setup-Tool/releases/tag/v1.0.0)** • **[📖 Documentation](Docs/INSTALLATION.md)** • **[🐛 Report Issues](https://github.com/christophe939/ClickByChris-Setup-Tool/issues)**
+
+</div>
 
 ---
