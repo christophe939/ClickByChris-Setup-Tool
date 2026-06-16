@@ -56,8 +56,8 @@ Si tu découvres une **vulnérabilité de sécurité**, contacte-nous **directem
    - Logs/evidence si possible
 
 4. **Coordonnées**
-   - Ton email
-   - Ton nom (optionnel)
+   - chris.clickby@gmail.com
+   - Christophe
 
 ### Format de l'Email
 
@@ -81,7 +81,7 @@ Logs/Evidence :
 
 Contact :
 
-    Email : [Ton email]
+    Email : [chris.clickby@gmail.com]
     PGP Key (optionnel) : [Si tu en as une]
 
 
@@ -144,7 +144,7 @@ La sécurité de **ClickByChris Setup Tool** est notre priorité. Ce document d�
 
 **Pour signaler une vulnérabilité de sécurité, envoie un email à :**
 
-📧 **chrisproducts@protonmail.com**
+📧 **chris.clickby@gmail.com**
 
 ### 📋 Format du Rapport
 
@@ -290,7 +290,7 @@ Pour toute question concernant la sécurité :
 
 | Canal | Information |
 |-------|-------------|
-| 📧 **Email** | chrisproducts@protonmail.com |
+| 📧 **Email** | chris.clickby@gmail.com |
 | 🔒 **PGP** | Disponible sur demande |
 | ⚠️ **Urgence** | Email avec "[URGENT]" dans le sujet |
 
@@ -300,7 +300,7 @@ Pour toute question concernant la sécurité :
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0 | 2024 | Version initiale |
+| 1.0 | 2026 | Version initiale |
 
 ---
 
