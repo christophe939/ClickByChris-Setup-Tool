@@ -2,7 +2,7 @@
 
 **Tu veux discuter en direct ? Poser des questions ? Partager tes astuces ?**
 
-**👉 [Clique ici pour rejoindre]([https://discord.gg/clickbychris](https://discord.gg/c4jUPmvc7p)**
+**👉 [Clique ici pour rejoindre](https://discord.gg/c4jUPmvc7p)**
 
 ---
 
