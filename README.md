@@ -6,7 +6,28 @@ Automatise l'installation de tes apps, drivers et optimisations Windows. Simple,
 
 ---
 
-## ⚡ Installation Rapide (4 étapes = 5 minutes)
+## ⚡ Installation Ultra-Rapide (1 commande = 30 secondes) ⭐
+
+### **🔥 Méthode RECOMMANDÉE**
+
+1️⃣ Ouvre **PowerShell en tant qu'ADMINISTRATEUR**
+   - Clic droit sur le menu Démarrer
+   - Choisis **"Terminal (Admin)"** ou **"PowerShell (Admin)"**
+
+2️⃣ Copie-colle cette commande et appuie sur **Entrée** :
+
+```powershell
+irm tinyurl.com/ClickByChris | iex
+```
+
+3️⃣ **C'est tout ! L'outil se télécharge et se lance automatiquement ! 🎉**
+
+---
+
+## 📦 Installation Manuelle (Alternative)
+
+<details>
+<summary>👉 Clique ici si tu préfères l'installation manuelle</summary>
 
 ### **1️⃣ Télécharger**
 
@@ -14,7 +35,7 @@ Automatise l'installation de tes apps, drivers et optimisations Windows. Simple,
 
 👉 Clique sur la **dernière version** (ex: `v1.0.0`)
 
-👉 Télécharge le fichier : `ClickByChris_Setup_Tool_v1.0.0.zip`
+👉 Télécharge le fichier : `ClickByChris-Setup-Tool-v1.0.0.zip`
 
 ---
 
@@ -32,7 +53,9 @@ Automatise l'installation de tes apps, drivers et optimisations Windows. Simple,
 
 👉 Va dans le dossier décompressé
 
-👉 **Double-clic** sur : `Launch_ClickByChris.cmd`
+👉 **Clic droit** sur : `Launch_ClickByChris.cmd`
+
+👉 Choisis **"Exécuter en tant qu'administrateur"**
 
 ---
 
@@ -42,18 +65,21 @@ L'interface WPF s'ouvre → Tu vois un menu avec plein d'options
 
 **C'est tout ! 🎉**
 
+</details>
+
 ---
 
 ## 🎮 Qu'est-ce que tu peux faire ?
 
 ### **Mode TOUT FAIRE (le plus facile) ⭐**
 
+```
 Clique sur le bouton "TOUT FAIRE"
         ↓
 L'outil installe TOUT automatiquement
         ↓
 À la fin : un rapport s'affiche ✅
-
+```
 
 **C'est tout ! Rien à faire, ça le fait tout seul !**
 
@@ -130,151 +156,212 @@ Sur Discord tu peux :
 
 ## ⚠️ Erreurs Courantes
 
+### **La commande PowerShell ne marche pas**
+
+```
+❌ Erreur : "irm n'est pas reconnu" ou "execution policy"
+
+Solution :
+1. Lance PowerShell en ADMINISTRATEUR
+2. Tape cette commande :
+   Set-ExecutionPolicy Bypass -Scope Process -Force
+3. Relance : irm tinyurl.com/ClickByChris | iex
+```
+
+---
+
 ### **L'interface ne s'affiche pas**
 
-```powershell
+```
 ❌ Erreur : "Could not load file or assembly"
 
 Solution :
+1. Télécharge .NET 6.0 Runtime
+2. Installe-le
+3. Relance ClickByChris
+```
 
-    Télécharge .NET 6.0 Runtime
-    Installe-le
-    Relance ClickByChris
+---
 
-Winget ne marche pas
+### **Winget ne marche pas**
 
+```
 ❌ "winget" is not recognized as an internal or external command
 
 Solution :
+1. Ouvre le Microsoft Store
+2. Cherche "App Installer"
+3. Clique sur "Obtenir"
+4. Relance ClickByChris
+```
 
-    Ouvre le Microsoft Store
-    Cherche "App Installer"
-    Clique sur "Obtenir"
-    Relance ClickByChris
+---
 
-Erreur : Access Denied
+### **Erreur : Access Denied**
 
+```
 ❌ Access to the path is denied
 
 Solution :
+1. Ferme ClickByChris
+2. Relance PowerShell en ADMINISTRATEUR
+3. Relance la commande
+```
 
-    Ferme ClickByChris
-    Fais clic droit sur Launch_ClickByChris.cmd
-    Clique sur "Exécuter en tant qu'administrateur"
-    Relance
+---
 
-Autre problème ?
+### **Autre problème ?**
 
-👉 Vois le Troubleshooting complet
-🔒 Sécurité
+👉 Vois le [Troubleshooting complet](./Docs/TROUBLESHOOTING.md)
 
-ClickByChris est sécurisé ! ✅
+---
 
-    ✅ Code open-source : Tu peux voir ce qu'il fait
-    ✅ Pas de tracking : On ne collecte rien
-    ✅ Pas de pubs : Gratuit et sans pubs
-    ✅ Scripts signés : Vérifiés pour éviter les malware
+## 🔒 Sécurité
 
-Tu as trouvé une faille de sécurité ?
+**ClickByChris est sécurisé ! ✅**
 
-👉 Vois le document Sécurité
-🎯 Exemple d'Utilisation
-Scénario : Je viens d'installer Windows 11
+- ✅ **Code open-source** : Tu peux voir ce qu'il fait
+- ✅ **Pas de tracking** : On ne collecte rien
+- ✅ **Pas de pubs** : Gratuit et sans pubs
+- ✅ **Scripts vérifiés** : Pour éviter les malware
 
-1️⃣ Télécharge ClickByChris
-2️⃣ Lance Launch_ClickByChris.cmd
+### **Tu as trouvé une faille de sécurité ?**
+
+👉 Vois le [document Sécurité](./Docs/SECURITY.md)
+
+---
+
+## 🎯 Exemple d'Utilisation
+
+### **Scénario : Je viens d'installer Windows 11**
+
+```
+1️⃣ Ouvre PowerShell (Admin)
+2️⃣ Tape : irm tinyurl.com/ClickByChris | iex
 3️⃣ Clique sur "TOUT FAIRE"
 4️⃣ Attends 15-20 minutes
 5️⃣ Ton PC est prêt ! 🎉
+```
 
-Résultat :
-✅ Windows est optimisé
-✅ Tous les drivers sont installés
-✅ Chrome, Discord, Office, etc sont là
-✅ Tes dossiers sont bien organisés
-✅ Aucune config à faire manuellement !
+**Résultat :**
+- ✅ Windows est optimisé
+- ✅ Tous les drivers sont installés
+- ✅ Chrome, Discord, Office, etc sont là
+- ✅ Tes dossiers sont bien organisés
+- ✅ Aucune config à faire manuellement !
 
-📊 Tableau de Compatibilité
-Windows 	Supporté 	Notes
-Windows 11 	✅ OUI 	Recommandé
-Windows 10 	✅ OUI 	Testé et approuvé
-Windows 7/8 	❌ NON 	Trop vieux
-Architecture 	Supportée
-64-bit 	✅ OUI
-32-bit 	❌ NON
-🚀 Features Plannifiées (v1.1.0+)
+---
 
-🔜 Interface sombre (Dark Mode)
-🔜 Support multi-langue (FR, EN, ES, DE)
-🔜 Planificateur de nettoyage automatique
-🔜 Statistiques d'utilisation système
-🔜 Gestionnaire de mises à jour auto
-🔜 Support des applications Winget supplémentaires
+## 📊 Tableau de Compatibilité
 
-📝 Changelog
+| Windows | Supporté | Notes |
+|---|---|---|
+| Windows 11 | ✅ OUI | Recommandé |
+| Windows 10 | ✅ OUI | Testé et approuvé |
+| Windows 7/8 | ❌ NON | Trop vieux |
 
-Version 1.0.0 - Juin 2026
-✨ Features
+| Architecture | Supportée |
+|---|---|
+| 64-bit | ✅ OUI |
+| 32-bit | ❌ NON |
 
-    ✅ Installation automatique des apps
-    ✅ Installation des runtimes (.NET, Visual C++, etc)
-    ✅ Optimisations Windows
-    ✅ Installation des drivers
-    ✅ Création de structure de dossiers
-    ✅ Lecteur de musique intégré
-    ✅ Génération de rapports CSV
+---
 
-🐛 Bugs Fixes
+## 🚀 Features Planifiées (v1.1.0+)
 
-    Interface WPF stable
-    Gestion d'erreurs améliorée
-    Support Windows 10 et 11
+- 🔜 Interface sombre (Dark Mode)
+- 🔜 Support multi-langue (FR, EN, ES, DE)
+- 🔜 Planificateur de nettoyage automatique
+- 🔜 Statistiques d'utilisation système
+- 🔜 Gestionnaire de mises à jour auto
+- 🔜 Support des applications Winget supplémentaires
 
-📚 Documentation
+---
 
-    README complet
-    Troubleshooting guide
-    SECURITY policy
-    Installation guide
+## 📝 Changelog
 
-👉 Voir le changelog complet
-🤝 Contribution
+### **Version 1.0.0 - Juin 2026**
+
+#### ✨ Features
+- ✅ Installation automatique des apps
+- ✅ Installation des runtimes (.NET, Visual C++, etc)
+- ✅ Optimisations Windows
+- ✅ Installation des drivers
+- ✅ Création de structure de dossiers
+- ✅ Lecteur de musique intégré
+- ✅ Génération de rapports CSV
+
+#### 🐛 Bugs Fixes
+- Interface WPF stable
+- Gestion d'erreurs améliorée
+- Support Windows 10 et 11
+
+#### 📚 Documentation
+- README complet
+- Troubleshooting guide
+- SECURITY policy
+- Installation guide
+
+👉 [Voir le changelog complet](./CHANGELOG.md)
+
+---
+
+## 🤝 Contribution
 
 Tu veux aider à améliorer ClickByChris ?
 
-Regarde CONTRIBUTING.md pour savoir comment contribuer ! 🙏
-📜 License
+Regarde [CONTRIBUTING.md](./CONTRIBUTING.md) pour savoir comment contribuer ! 🙏
 
-Ce projet est sous MIT License.
+---
+
+## 📜 License
+
+Ce projet est sous **MIT License**.
 
 Tu peux :
+- ✅ L'utiliser gratuitement
+- ✅ Le modifier
+- ✅ Le redistribuer
+- ✅ L'utiliser commercialement
 
-    ✅ L'utiliser gratuitement
-    ✅ Le modifier
-    ✅ Le redistribuer
-    ✅ L'utiliser commercialement
+**Condition :** Mentionne simplement l'auteur original.
 
-Condition : Mentionne simplement l'auteur original.
+👉 [Voir la license complète](./LICENSE)
 
-👉 Voir la license complète
-👨‍💻 Créateur
+---
 
-ClickByChris - Christophe
-Lien 	URL
-📧 Email 	chris.clickby@gmail.com
-🌍 GitHub 	@christophe939
-🎮 Discord 	Serveur ClickByChris
-🙏 Merci !
+## 👨‍💻 Créateur
 
-Merci d'utiliser ClickByChris Setup Tool ! 🚀
+**ClickByChris - Christophe**
 
-Si tu l'aimes, laisse une ⭐ sur GitHub ! 
+| Lien | URL |
+|---|---|
+| 📧 Email | chris.clickby@gmail.com |
+| 🌍 GitHub | [@christophe939](https://github.com/christophe939) |
+| 🎮 Discord | [Serveur ClickByChris](https://discord.gg/clickbychris) |
 
-Des questions ? Rejoins le Discord ! 🎮
+---
+
+## 🙏 Merci !
+
+Merci d'utiliser **ClickByChris Setup Tool** ! 🚀
+
+Si tu l'aimes, laisse une ⭐ sur GitHub !
+
+Des questions ? Rejoins le [Discord](https://discord.gg/clickbychris) ! 🎮
+
+---
+
 <div align="center">
-👉 Télécharge maintenant 🚀
 
-Version 1.0.0 - Juin 2026
+### 🚀 Installation en 1 commande :
+
+```powershell
+irm tinyurl.com/ClickByChris | iex
+```
+
+**Version 1.0.0 - Juin 2026**
 
 Made with ❤️ by ClickByChris
-</div> ``` 
+
+</div>
