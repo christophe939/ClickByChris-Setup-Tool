@@ -4586,7 +4586,7 @@ $contactCardTitle.ForeColor = $yellow
 $contactCard.Controls.Add($contactCardTitle)
 
 $contactSub = New-Object System.Windows.Forms.Label
-$contactSub.Text = "Createur de l outil - Support & aide"
+$contactSub.Text = "Createur de l outil - Support & aide - Discord: discord.gg/c4jUPmvc7p"
 $contactSub.Location = [System.Drawing.Point]::new(25,52)
 $contactSub.Size = New-Object System.Drawing.Size(530,22)
 $contactSub.Font = New-Object System.Drawing.Font("Segoe UI",10)
