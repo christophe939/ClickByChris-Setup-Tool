@@ -4,7 +4,7 @@
 # =========================================================
 
 $Version = "v1.0.0"
-$ZipUrl = "$ZipUrl = "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/$Version/ClickByChris-Setup-Tool-v1.0.0.zip"
+$ZipUrl = "https://github.com/christophe939/ClickByChris-Setup-Tool/releases/download/$Version/ClickByChris-Setup-Tool-v1.0.0.zip"
 
 $TempZip = "$env:TEMP\ClickByChris_Setup_Tool.zip"
 $TempDir = "$env:TEMP\ClickByChris_Setup_Tool"
