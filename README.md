@@ -121,7 +121,7 @@ Après que le script finisse :
 
 **Tu préfères discuter en direct ?**
 
-👉 **[Discord ClickByChris](https://discord.gg/clickbychris)**
+👉 **[Discord ClickByChris](https://discord.gg/c4jUPmvc7p)**
 
 Sur Discord tu peux :
 - 🆘 Demander de l'aide rapidement
@@ -338,7 +338,7 @@ Tu peux :
 |---|---|
 | 📧 Email | chris.clickby@gmail.com |
 | 🌍 GitHub | [@christophe939](https://github.com/christophe939) |
-| 🎮 Discord | [Serveur ClickByChris](https://discord.gg/clickbychris) |
+| 🎮 Discord | [Serveur ClickByChris](https://discord.gg/c4jUPmvc7p) |
 
 ---
 
@@ -348,7 +348,7 @@ Merci d'utiliser **ClickByChris Setup Tool** ! 🚀
 
 Si tu l'aimes, laisse une ⭐ sur GitHub !
 
-Des questions ? Rejoins le [Discord](https://discord.gg/clickbychris) ! 🎮
+Des questions ? Rejoins le [Discord](https://discord.gg/c4jUPmvc7p) ! 🎮
 
 ---
 
